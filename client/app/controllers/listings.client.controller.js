@@ -15,7 +15,6 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
     };
 
     $scope.findOne = function() {
-      debugger;
       $scope.loading = true;
 
       /*
