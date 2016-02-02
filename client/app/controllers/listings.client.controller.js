@@ -85,23 +85,23 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
 
         return false;
       }
-	  var currentTime = new Date;
-	  var listing = {
+	    var currentTime = new Date;
+      var listing = {
         name: $scope.name, 
         code: $scope.code, 
         address: $scope.address,
-		// if($scope.coordinates){
-			// latitude: $scope.lat,
-			// longitude: $scope.lat
-		// };
-		created_at: $scope.created_at
+		    // if($scope.coordinates){
+			  // latitude: $scope.lat,
+			  // longitude: $scope.lat
+		    // };
+		    created_at: $scope.created_at
       };
 	  
 	  var id = $stateParams.listingId;
 	  Listings.update(id, listing)
               .then(function(response) {
                 //if the object is successfully saved redirect back to the list page
-                $state.go('listings.list', { successMessage: 'Listing succesfully created!' });
+                $state.go('listings.list', { successMessage: 'Listing succesfully updated!' });
               }, function(error) {
                 //otherwise display the error
                 $scope.error = 'Unable to update listing!\n' + error;
