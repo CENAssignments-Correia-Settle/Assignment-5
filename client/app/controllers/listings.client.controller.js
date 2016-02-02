@@ -86,6 +86,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       }
 	  
 	    var id = $stateParams.listingId;
+		var listing = $scope.listing;
 	    Listings.update(id, listing)
               .then(function(response) {
                 //if the object is successfully saved redirect back to the list page
