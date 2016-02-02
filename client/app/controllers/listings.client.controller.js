@@ -110,6 +110,7 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
                 //otherwise display the error
                 $scope.error = 'Unable to update listing!\n' + error;
               });
+		
     };
 
     $scope.remove = function() {
