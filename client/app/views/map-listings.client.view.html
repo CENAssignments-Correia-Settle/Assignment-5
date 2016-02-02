@@ -11,6 +11,9 @@
 
 <div id="map_canvas" ng-controller="ListingsController" ng-init="find()">
   	<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-  		
+        <ui-gmap-markers models="pushpins" coords="'self'" icon="'icon'" click="onClick">
+            <ui-gmap-windows show="show">
+                <div ng-non-bindable>{{name}}<br>{{code}}<br>{{address}}</div>
+            </ui-gmap-windows>
   	</ui-gmap-google-map>
 </div>

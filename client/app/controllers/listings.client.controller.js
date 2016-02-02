@@ -8,6 +8,21 @@ angular.module('listings').controller('ListingsController', ['$scope', '$locatio
       Listings.getAll().then(function(response) {
         $scope.loading = false; //remove loader
         $scope.listings = response.data;
+		$scope.pushpins = [];
+		for(var i in $scope.listings){
+			if($scope.listings[i].coordinates){
+				$scope.pushpins.push({
+					"id": $scope.listings[i]._id,
+					"name": $scope.listings[i].name,
+					"latitude": $scope.listings[i].coordinates.latitude,
+					"longitude": $scope.listings[i].coordinates.longitude,
+					"address": $scope.listings[i].address,
+					"code": $scope.listings[i].code
+				});
+			}
+		}
+		
+		
       }, function(error) {
         $scope.loading = false;
         $scope.error = 'Unable to retrieve listings!\n' + error;
